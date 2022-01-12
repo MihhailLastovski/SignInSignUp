@@ -111,7 +111,7 @@ def signin(loglist:list,passlist:list):
             trypass=0
         if log2 in loglist and pass2 in passlist:
             if loglist.index(log2)==passlist.index(pass2):
-                print("Welcome!")
+                print("Welcome!") #Начало игры
                 orel="Орел"
                 reshka="Решка"
                 orel_sum=0
@@ -147,7 +147,7 @@ def signin(loglist:list,passlist:list):
                     else:
                         print("Вы проиграли!")
                 else:
-                    print("Досвидания!")
+                    print("Досвидания!")   #Конец игры
                 break
             else:
                 print("Вы ввели неправильный логин или пароль")
