@@ -34,10 +34,10 @@ def signup(l_log:list,l_pass:list):
     """
     while 1:
         log1=input("Введите логин: ")
-        if log1 not in l_log:
+        if log1 not in l_log and len(log1)>=3:
             break
         else:
-            print("Данный логин уже занят")
+            print("Данный логин уже занят или состоит меньше, чем из 3 символов")
     l_log.append(log1)
     print("1. Автоматический создать пароль")
     print("2. Самостоятельно создать пароль")
