@@ -1,5 +1,6 @@
 import random
 from time import*
+import os 
 def console_picture():
     """Функция, которая выводит надпись на экран
     """
@@ -31,7 +32,12 @@ def signup(l_log:list,l_pass:list):
     :param list l_log: список логинов
     :param list l_pass: список паролей
     """
-    log1=input("Введите логин: ")
+    while 1:
+        log1=input("Введите логин: ")
+        if log1 not in l_log:
+            break
+        else:
+            print("Данный логин уже занят")
     l_log.append(log1)
     print("1. Автоматический создать пароль")
     print("2. Самостоятельно создать пароль")
@@ -105,9 +111,9 @@ def signin(loglist:list,passlist:list):
             trypass+=1
             print(f"Осталось попыток:{3-trypass}")
         if trypass==3:
-            print("Вы исчерпали допустимое количество попыток ввода пароля")
-            for i in range(0,10):
-                print(10-i,end=", ")
+            print("Вы исчерпали допустимое количество попыток ввода пароля. Подождите")
+            for i in range(1,11):
+                print("\r" + "осталось - " + str(10-i), end='')
                 sleep(1)
             trypass=0
         if log2 in loglist and pass2 in passlist:
@@ -148,12 +154,10 @@ def signin(loglist:list,passlist:list):
                     else:
                         print("Вы проиграли!")
                 else:
-                    print("Досвидания!")   #Конец игры
+                    print("Досвидания!") #Конец игры
                 break
             else:
                 print("Вы ввели неправильный логин или пароль")
                 
         else:
-            print("Вы ввели неправильный логин или пароль")
-            
-     
+            print("Вы ввели неправильный логин или пароль")  
